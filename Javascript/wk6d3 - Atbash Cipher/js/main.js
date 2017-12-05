@@ -45,3 +45,28 @@ const atbash = function (str) {
 
 atbash("test");
 atbash("gvhg");
+
+
+
+// const atbash = {
+//
+//   alphabet: "abcdefghijklmnopqrstuvwxyz",
+//   cipher: "zyxwvutsrqponmlkjihgfedcba",
+//
+//   encode: function (input) {
+//
+//     let output = "";
+//     const str = input.toLowerCase();
+//
+//     for (let i = 0; i < str.length; i++) {
+//
+//       const index = this.alphabet.indexOf( str[i] );
+//       // console.log(str[i], index);
+//       output += this.alphabet.reverse()[index];
+//     };
+//     return output;
+//   }
+//
+// };
+//
+// console.log(atbash.encode("test"));
