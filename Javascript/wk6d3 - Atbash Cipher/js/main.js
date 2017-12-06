@@ -16,57 +16,60 @@
 // Encoding "test" gives "gvhg"
 // Decoding "gvhg" gives "test"
 
-const plain = "abcdefghijklmnopqrstuvwxyz";
-const cipher = "zyxwvutsrqponmlkjihgfedcba";
-
-const atbash = function (str) {
-  //Store result
-  let output = "";
-  //Convert input to lower case letters
-  str = str.toLowerCase();
-  //loop through and find index of letter in plainArr
-  for (let i = 0; i < str.length; i++) {
-    //Reading the letter
-    let letter = str.charAt(i);
-    //Index of the char in the plain array
-    let letterIndex = plain.indexOf(letter);
-    //if it is a letter or not, otherwise exit
-    if (letterIndex >= 0) {
-      //Find the char at that index in the cipher
-      let cipherLetter = cipher.charAt(letterIndex);
-      output += cipherLetter;
-    } else {
-      console.log("Not a valid word!");
-    };
-  };
-  console.log(output);
-  return output;
-};
-
-atbash("test");
-atbash("gvhg");
-
-
-
-// const atbash = {
+// const plain = "abcdefghijklmnopqrstuvwxyz";
+// const cipher = "zyxwvutsrqponmlkjihgfedcba";
 //
-//   alphabet: "abcdefghijklmnopqrstuvwxyz",
-//   cipher: "zyxwvutsrqponmlkjihgfedcba",
-//
-//   encode: function (input) {
-//
-//     let output = "";
-//     const str = input.toLowerCase();
-//
-//     for (let i = 0; i < str.length; i++) {
-//
-//       const index = this.alphabet.indexOf( str[i] );
-//       // console.log(str[i], index);
-//       output += this.alphabet.reverse()[index];
+// const atbash = function (str) {
+//   //Store result
+//   let output = "";
+//   //Convert input to lower case letters
+//   str = str.toLowerCase();
+//   //loop through and find index of letter in plainArr
+//   for (let i = 0; i < str.length; i++) {
+//     //Reading the letter
+//     let letter = str.charAt(i);
+//     //Index of the char in the plain array
+//     let letterIndex = plain.indexOf(letter);
+//     //if it is a letter or not, otherwise exit
+//     if (letterIndex >= 0) {
+//       //Find the char at that index in the cipher
+//       let cipherLetter = cipher.charAt(letterIndex);
+//       output += cipherLetter;
+//     } else {
+//       console.log("Not a valid word!");
 //     };
-//     return output;
-//   }
-//
+//   };
+//   console.log(output);
+//   return output;
 // };
 //
-// console.log(atbash.encode("test"));
+// atbash("test");
+// atbash("gvhg");
+//
+//
+
+const atbash = {
+
+  alphabet: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+
+  encode: function( input ){
+
+    let output = '';
+    const str = input.toLowerCase().split('');
+
+    for ( let i = 0; i < str.length; i++ ){
+
+      const index = this.alphabet.indexOf( str[i] );
+      // console.log( `The index of ${ str[i] } is ${ index }` );
+
+      output += this.alphabet.reverse()[index];
+
+    }
+    return output;
+  }
+
+};
+
+console.log(atbash.encode("TEST"));
+console.log(atbash.encode("gvhg"));
+console.log(atbash.encode("wizard"));
