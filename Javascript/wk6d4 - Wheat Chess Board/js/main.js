@@ -27,3 +27,14 @@
 //
 // This is a really old story, first mentioned in 1256, however chess was invented somewhere around
 //  600 AD (still in India).
+
+
+//Array with 64 numbered squares
+const squares = _.range(1,65);
+
+const sqSq = _.map(squares, function(num){ return num * num; });
+
+var sum = _.reduce(squares, function(memo, num){ return memo + num; });
+
+console.log(sqSq);
+console.log(sum);
