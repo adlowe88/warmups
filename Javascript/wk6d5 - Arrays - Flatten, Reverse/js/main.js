@@ -1,0 +1,38 @@
+// Arrays - Flatten and Reverse
+//
+// The goal of this exercise is to manipulate arrays by creating a function that can
+// reverse an array and by creating a function that can flatten an array.
+// Do not use any libraries to complete this task - write this stuff from scratch
+// using standard JS methods and objects.
+//
+// Make two functions
+// reverse
+// flatten
+//
+// // => [ 4, 3, 2, 1 ]
+// flatten( ["Hello", ["World", 42] ] );
+// // => [ "Hello", "World", 42 ]
+// You only need to make flatten work to one level deep! You should be able to flatten this
+//  - ["Hello", ["World"]] - but not this - ["Hello", [[["World"]]]]
+//
+// Hint: You're going to need to be looping through the arrays to get a solution.
+
+// Takes and array of arrays matrix and return an array of elements.
+
+const flatten = function (arrays) {
+  let merged = [];
+  return merged = merged.concat.apply(merged, arrays);
+};
+
+console.log(flatten( ["Hello", ["World", 42] ] ));
+
+// function flatten(arrayOfArrays){
+//   return [].concat.apply([], arrayOfArrays);
+// }
+
+
+const reverse = function (array) {
+  return array.reverse();
+};
+
+console.log( reverse( [1, 2, 3, 4] ));
