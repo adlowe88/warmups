@@ -21,6 +21,9 @@ console.log(flatBumpy);
 const noFalsey = _.without(uncompactedArr, false, NaN, undefined);
 console.log(noFalsey);
 
+const removeFalsey = _.compact(uncompactedArr);
+console.log(removeFalsey);
+
 // Find all of the unique elements in the following arrays - [ 1, 25, 100 ], [ 1, 14, 25 ] and 24, Infinity, -0
 const allArrays = [ [ 1, 25, 100 ], [ 1, 14, 25 ], [24, Infinity, -0] ];
 const unique = _.uniq(_.flatten(allArrays));
