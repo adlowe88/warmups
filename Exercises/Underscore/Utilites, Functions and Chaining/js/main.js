@@ -82,3 +82,23 @@ const startingData = [
 // _.mapObject();
 // _.isNaN();
 // _.template();
+
+_.chain( startingData )
+  .map(function (person) {
+    return _.invert( _.object( _.unzip( person ) ) );
+  })
+  .map(function (person) {
+    return _.mapObject( person, function (value, key) {
+      // return key === "born" ? parseInt(value) - 100 : value[0].toUpperCase() + _.rest( value ).join("");
+      if ( key === "born" ) {
+        return parseInt(value) - 100;
+      } else  {
+        return value[0].toUpperCase() + _.rest( value ).join("");
+      }
+    });
+  })
+  .each(function (person) {
+    var bio = "<%= firstName %> <%= lastName %> was born in <%= born %>.";
+    var compiledBio = _.template( bio );
+    console.log( compiledBio(person) );
+  });
