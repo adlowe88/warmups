@@ -17,23 +17,50 @@ require 'pry'
 
 #every odd number === 1
 #every even number === 0
+#
+# def s1(num)
+#   if (num % 2 == 0)
+#     puts 0
+#   elsif (num % 2 != 0)
+#     puts 1
+#   end
+# end
+#
+# s1(4)
+#
+# def s2 (num)
+#   output = 0;
+#   (1..num).each do | n |
+#     output += n
+#   end
+#   puts output
+# end
+#
+# s2(4)
 
-def s1(num)
-  if (num % 2 == 0)
-    puts 0
-  elsif (num % 2 != 0)
-    puts 1
+
+
+class SimpleSums
+
+  def initialize num
+    @num = num
   end
+
+  def s1
+    # output = 0
+    # if (@num % 2 == 0)
+    #   output = 0
+    # else
+    #   output = 1
+    # end
+    # output
+    @num % 2
+  end
+
+  
+
+
 end
 
-s1(4)
-
-def s2 (num)
-  output = 0;
-  (1..num).each do | n |
-    output += n
-  end
-  puts output
-end
-
-s2(4)
+sum = SimpleSums.new(4)
+p sum.s1
