@@ -14,7 +14,7 @@ const Routes = (
       </nav>
       <Route exact path = "/" component = { Home } />
       <Route exact path = "/bud_search" component = { BudSearch } />
-      <Route exact path = "/show" component = { Show } />
+      <Route path = "/show" component = { Show } />
     </div>
   </Router>
 )
