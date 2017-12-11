@@ -57,10 +57,18 @@ class SimpleSums
     @num % 2
   end
 
-  
+  def s2
+    # output = 0
+    # 1.upto(@num) do | i |
+    #   output = output + i
+    # end
+    # output
 
-
+    # (@num * (@num +1) ) / 2)
+    (1..@num).sum
+  end
 end
 
 sum = SimpleSums.new(4)
 p sum.s1
+p sum.s2
