@@ -50,18 +50,69 @@
 //
 // }
 
-const primeFactors = function ( num ) {
-  let output = [];
+// const primeFactors = function ( num ) {
+//   let output = [];
+//
+//   for ( let i = 2; i <= num; i++ ) {
+//     while ( num % i === 0 ) {
+//       output.push(i);
+//       num /= i;
+//     }
+//   }
+//   return output;
+// };
+//
+// console.log(primeFactors(60));
+// console.log(primeFactors(144));
+// console.log(primeFactors(10));
 
-  for ( let i = 2; i <= num; i++ ) {
-    while ( num % i === 0 ) {
-      output.push(i);
-      num /= i;
+
+const prime = {
+  range: [],
+  primeRange: [],
+  primeFactorRange: [],
+
+  getRange: function (num ) {
+    this.range = [];
+    for (let i = 2; i <= num; i++) {
+      this.range.push(i);
+    }
+    return this.range;
+  },
+
+  getPrimeRange: function (arr) {
+    this.primeRange = [];
+    for (let i = 0; i < arr.length; i++) {
+      let isPrime = true;
+      let potentialPrime = arr[i];
+
+      for (let j = 2; j < potentialPrime; j++) {
+        if (potentialPrime % j === 0) {
+          isPrime = false;
+        }
+      }
+
+      if ( isPrime ) {
+        this.primeRange.push(potentialPrime);
+      }
+    }
+    return this.primeRange;
+  },
+
+  getPrimeFactorRange: function (num) {
+    this.primeFactorRange = [];
+
+    const numPrimes = prime.getPrimeRange( prime.getRange(num));
+    //loop through primes
+    for (let i = 0; i < numPrimes.length; i++) {
+      while ( num % numPrimes[i] === 0) {
+        this.primeFactorRange.push( numPrimes[i]);
+        num /= numPrimes[i];
+      }
     }
   }
-  return output;
-}
 
-console.log(primeFactors(60));
-console.log(primeFactors(144));
-console.log(primeFactors(10));
+};
+
+// console.log(prime.getPrimeRange( prime.getRange(10) ));
+console.log(prime.getPrimeFactorRange ( 60 ) );
