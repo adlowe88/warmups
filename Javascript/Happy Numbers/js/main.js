@@ -29,23 +29,66 @@
 //Find sum of squares of it's digits
 //!= 1 continue, else break
 
-const happyNumbers = function ( num ) {
-  let sum = 0;
-  //Find the number of digits in the num
-  let numDigits = num.toString().length;
-  //Read num input, check if it is positive
-  if ( num > 0 ) {
-    //Take the first digit and add it's square to sum
-    let firstDigit = num % 10;
-    sum += (firstDigit * firstDigit);
-    //Break down number into digits
-    for (let i = 10; i < numDigits; i *= 10) {
-      let nextdigit = num / i % 10;
-      //Add sum of square to sum
-      sum += (nextDigit * nextDigit);
-      console.log(sum);
-    }
-  };
-}
+// const happyNumbers = function ( num ) {
+//   let sum = 0;
+//   //Find the number of digits in the num
+//   let numDigits = num.toString().length;
+//   //Read num input, check if it is positive
+//   if ( num > 0 ) {
+//     //Take the first digit and add it's square to sum
+//     let firstDigit = num % 10;
+//     sum += (firstDigit * firstDigit);
+//     //Break down number into digits
+//     for (let i = 10; i < numDigits; i *= 10) {
+//       let nextdigit = num / i % 10;
+//       //Add sum of square to sum
+//       sum += (nextDigit * nextDigit);
+//       console.log(sum);
+//     }
+//   };
+// }
+//
+// happyNumbers(10);
 
-happyNumbers(10);
+const happyNums = {
+
+  list: [],
+
+  squareSum: function ( num ) {
+    const strNum = num.toString().split('');
+    // console.log( strNum );
+
+    let sum = 0;
+
+    strNum.forEach( function ( john ) {
+      sum += john * john;
+    });
+    return sum;
+  },
+
+  logic: function ( num ) {
+    let steps = [ num ];
+    while( steps.length < 10 ) {
+      let lastIndex = steps [ steps.length - 1];
+      if (lastIndex !== 1) {
+        steps.push ( this.squareSum ( lastIndex ) );
+      } else if ( lastIndex > 1 && steps.indexof ( lastIndex ) > 0 ) {
+        return;
+      } else {
+        this.list.push( num );
+        return;
+      }
+    }
+  },
+
+  answer: function ( num ) {
+    for ( let i = 1; this.list.length < num; i++ ) {
+     this.logic( i );
+    };
+    console.log( this.list );
+    return this.list;
+  },
+
+};
+
+happyNums.answer(12);
