@@ -51,8 +51,9 @@ class WordProblem
 
   def get_matches str
     # binding.pry
-    @matches = str.match(/(-?\d+) (plus|minus) (-?\d+)/)
+    @matches = str.match(/(-?\d+) (plus|minus) (-?\d+) ((plus|minus) (-?\d+))?/)
     # binding.pry
+    @matches.nil? ? ( raise ArgumentError, "That's too complicated!")
   end
 
   def calculator (num1, operator, num2)
@@ -60,10 +61,14 @@ class WordProblem
       return num1 + num2
     else
       return num1 - num2
-    end 
+    end
   end
 
   def answer
-    calculator( @matches[1].to_i, @matches[2], @matches[3].to_i )
+    sum = calculator( @matches[1].to_i, @matches[2], @matches[3].to_i )
+    if @matches[4]
+      sum = calculator(sum, @matches[5])
+    end
+    sum
   end
 end
