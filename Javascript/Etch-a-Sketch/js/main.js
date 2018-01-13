@@ -33,8 +33,39 @@
 // -- A rectangle takes the following parameters: ( x, y, number of pixels from X, number of pixels from Y).
 //  That line of code draws a box 20px down and in from the top left corner of the canvas, 150px wide,
 //  and 100px high.
+let $canvas, context;
+
+const draw = {
+
+  pixel: {
+    x: 150,
+    y: 150,
+    size: 10,
+  },
+
+  move: function (e) {
+    if ( e.key === "w" && this.pixel.y - this.pixel.size >= 0 ) {
+      this.pixel.y -= this.pixel.size;
+    } else if ( e.key === "a" && this.pixel.x - this.pixel.size >= 0 ) {
+      this.pixel.x -= this.pixel.size;
+    } else if ( e.key === "s" && this.pixel.y + this.pixel.size < $canvas.height ) {
+      this.pixel.y += thispixel.size;
+    } else if ( e) {
+
+    }
+  },
+
+  render: function () {
+
+    context.fillRect( draw.pixel.x, draw.pixel.y, draw.pixel.size, draw.pixel.size );
+  },
+};
 
 window.onload = function () {
 
-  
+  $canvas = document.querySelector( 'canvas' );
+
+  context = $canvas.getContext('2d');
+
+  draw.render();
 }
