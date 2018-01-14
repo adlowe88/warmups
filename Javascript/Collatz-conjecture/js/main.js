@@ -50,4 +50,37 @@ const collatz = function (num) {
   } else {
     console.log("You have reached the end! (1!!!!)");
   }
+  console.log(`On the ${ cycle } cycle`);
 };
+
+const collatzConjecture = function ( num ) {
+  let collection = [ num ];
+
+  const makeCollection = function () {
+
+    while ( collection[ colletion.length - 1 ] > 1 ) {
+
+      const currentNum = collection [ collection.length - 1 ];
+
+      const nextIndex = currentNum % 2 === 0 ? (currentNum / 2) : (3 * currentNum + 1);
+
+      collection.push( nextIndex );
+    };
+  };
+
+  const answer = function () {
+    console.log(`The function ran ${ colletion.length } times.`);
+    console.log(`The process was: ${ collection.join(', ') }.`);
+  };
+
+  makeCollection();
+  answer();
+
+  //Json to use results eg. as API
+  return {
+    collection: collection,
+    steps: collection.length - 1,
+  };
+};
+
+console.log(collatz(19));
