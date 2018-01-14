@@ -83,4 +83,4 @@ const collatzConjecture = function ( num ) {
   };
 };
 
-console.log(collatz(19));
+console.log(collatzConjecture(19));
