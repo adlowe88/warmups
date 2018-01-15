@@ -56,3 +56,25 @@ collatz(5)
 collatz(10)
 collatz(14)
 collatz(23)
+
+# class Collatz
+#
+#   def initialize num
+#     @collection = [ num ]
+#     calculate_collection( num )
+#   end
+#
+#   def calculate_collection num
+#     if @collection.last > 1
+#       @collection.push( num.even? ? ( num / 2 ) : ( num * 3 + 1 ) )
+#       calculate_collection( @collection.last )
+#     end
+#   end
+#
+#   def answer
+#     puts "The total step were: #{ @collection.join(', ') }"
+#     puts "The program ran #{ @collection.length } times."
+#   end
+# end
+#
+# Collatz.new(19).answer
