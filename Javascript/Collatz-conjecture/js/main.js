@@ -53,6 +53,8 @@ const collatz = function (num) {
   console.log(`On the ${ cycle } cycle`);
 };
 
+
+
 const collatzConjecture = function ( num ) {
   let collection = [ num ];
 
