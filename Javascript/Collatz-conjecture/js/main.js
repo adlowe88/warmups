@@ -18,14 +18,14 @@
 //
 // Examples to verify your program can be found on the wikipedia page.
 //
-
-//Read num input
-//if positive?
-//even = n / 2
-//odd = 3n + 1
-//until you reach 1
-//print input each iteration, cycles count
-
+//
+// Read num input
+// if positive?
+// even = n / 2
+// odd = 3n + 1
+// until you reach 1
+// print input each iteration, cycles count
+//
 
 
 const collatz = function (num) {
