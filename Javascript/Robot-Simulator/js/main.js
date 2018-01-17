@@ -87,6 +87,7 @@ $(document).ready(function () {
 
       $('robot').addClass(dir); //String  - up, down, left, right ?
     };
+
     return {
       left: function () {
         turn("left");
